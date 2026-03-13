@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Algorithm Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sorting Visualizer</h1>
+    <p>Interactive animated demos of common sorting algorithms</p>
+  </header>
+
+  <main>
+    <!-- Algorithm Tabs -->
+    <div class="algorithm-tabs">
+      <button class="tab active" data-algo="bubble">Bubble Sort</button>
+      <button class="tab" data-algo="selection">Selection Sort</button>
+      <button class="tab" data-algo="insertion">Insertion Sort</button>
+      <button class="tab" data-algo="merge">Merge Sort</button>
+      <button class="tab" data-algo="quick">Quick Sort</button>
+      <button class="tab" data-algo="heap">Heap Sort</button>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <div class="control-group">
+        <label>Array Size: <strong id="size-value">50</strong></label>
+        <input type="range" id="size-slider" min="10" max="200" value="50">
+      </div>
+      <div class="control-group">
+        <label>Speed: <strong id="speed-value">Medium</strong></label>
+        <input type="range" id="speed-slider" min="1" max="10" value="5">
+      </div>
+      <div class="control-group">
+        <label>Array Type</label>
+        <select id="array-type">
+          <option value="random">Random</option>
+          <option value="nearly-sorted">Nearly Sorted</option>
+          <option value="reversed">Reversed</option>
+          <option value="few-unique">Few Unique Values</option>
+        </select>
+      </div>
+      <div class="btn-group">
+        <button id="generate-btn" class="btn btn-secondary">New Array</button>
+        <button id="sort-btn" class="btn btn-primary">&#9654; Sort</button>
+        <button id="pause-btn" class="btn btn-warning" disabled>Pause</button>
+        <button id="reset-btn" class="btn btn-danger">Reset</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-label">Comparisons</span>
+        <span class="stat-value" id="comparisons">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Swaps</span>
+        <span class="stat-value" id="swaps">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Array Accesses</span>
+        <span class="stat-value" id="accesses">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Status</span>
+        <span class="stat-value" id="status-text" style="font-size:1rem;">Ready</span>
+      </div>
+    </div>
+
+    <!-- Visualization -->
+    <div class="visualization-container">
+      <div id="visualization"></div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item"><span class="dot default"></span> Default</div>
+      <div class="legend-item"><span class="dot compare"></span> Comparing</div>
+      <div class="legend-item"><span class="dot swap"></span> Swapping</div>
+      <div class="legend-item"><span class="dot overwrite"></span> Overwriting</div>
+      <div class="legend-item"><span class="dot pivot"></span> Pivot</div>
+      <div class="legend-item"><span class="dot active"></span> Active</div>
+      <div class="legend-item"><span class="dot sorted"></span> Sorted</div>
+    </div>
+
+    <!-- Algorithm Info -->
+    <div class="algo-info" id="algo-info"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
